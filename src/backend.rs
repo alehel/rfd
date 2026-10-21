@@ -11,7 +11,9 @@ use std::pin::Pin;
         target_os = "freebsd",
         target_os = "dragonfly",
         target_os = "netbsd",
-        target_os = "openbsd"
+        target_os = "openbsd",
+        target_os = "illumos",
+        target_os = "solaris"
     ),
     not(feature = "gtk3"),
     not(feature = "gtk4")
@@ -24,7 +26,9 @@ mod linux;
         target_os = "freebsd",
         target_os = "dragonfly",
         target_os = "netbsd",
-        target_os = "openbsd"
+        target_os = "openbsd",
+        target_os = "illumos",
+        target_os = "solaris"
     ),
     feature = "gtk3"
 ))]
@@ -35,7 +39,9 @@ mod gtk3;
         target_os = "freebsd",
         target_os = "dragonfly",
         target_os = "netbsd",
-        target_os = "openbsd"
+        target_os = "openbsd",
+        target_os = "illumos",
+        target_os = "solaris"
     ),
     feature = "gtk4"
 ))]
@@ -52,7 +58,9 @@ mod win_cid;
         target_os = "freebsd",
         target_os = "dragonfly",
         target_os = "netbsd",
-        target_os = "openbsd"
+        target_os = "openbsd",
+        target_os = "illumos",
+        target_os = "solaris"
     ),
     not(feature = "gtk3"),
     not(feature = "gtk4")

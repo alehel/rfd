@@ -2,6 +2,7 @@
 
 ## Unreleased
 
+- Support illumos and Solaris, using the same backends as Linux and the BSDs (X11 only: the `wayland` feature has no effect there)
 - Fix some GTK3 memory leaks
 - Add GTK4 backend behind the `gtk4` feature
 - MSRV is now 1.92

@@ -5,6 +5,15 @@ fn main() {
         std::env::var("CARGO_CFG_TARGET_FAMILY").expect("target FAMILY not detected");
     let is_wasm = target_family.split(',').any(|f| f == "wasm");
 
+    // `cfg(wayland)`: the `wayland` feature, except on illumos and Solaris, which have no Wayland
+    // and where wayland-backend doesn't build (Cargo.toml leaves its crates out there).
+    println!("cargo:rustc-check-cfg=cfg(wayland)");
+    if std::env::var_os("CARGO_FEATURE_WAYLAND").is_some()
+        && !matches!(target_os.as_str(), "illumos" | "solaris")
+    {
+        println!("cargo:rustc-cfg=wayland");
+    }
+
     match target_os.as_str() {
         "macos" => println!("cargo:rustc-link-lib=framework=AppKit"),
         "windows" => {}
